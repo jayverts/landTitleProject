@@ -1,0 +1,85 @@
+.card {
+  width: 50vh;
+  position: relative;
+  left: 20px
+}
+
+#zipbutton {
+  position: relative;
+  left: 15px;
+}
+
+#zipInput {
+  width: 75vh;
+  position: relative;
+  left: 25px;
+}
+
+#addContact {
+  width: 75vh;
+  position: relative;
+  left: 25px;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  background-color: #fcad26;
+  font-size: 16px;
+  font-weight: 300;
+	color: white;
+  text-transform: uppercase;
+	letter-spacing: 2px;
+  padding: 25px 80px;
+  margin: 0 auto;
+	-webkit-box-shadow: 0 6px #efa424;
+	        box-shadow: 0 6px #efa424;
+  border-radius: 20px;
+}
+button:hover {
+	-webkit-box-shadow: 0 4px #efa424;
+	        box-shadow: 0 4px #efa424;
+	top: 2px;
+}
+button:active {
+	-webkit-box-shadow: 0 0 #efa424;
+	        box-shadow: 0 0 #efa424;
+  background-color: #fcad26;
+	top: 6px;
+}
+
+#saveButton {
+  position: relative;
+  bottom: 5px;
+  background-color: green;
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#deleteButton {
+  position: relative;
+  top: 12px;
+  background-color: red;
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#deleteButton:hover {
+  top: 18px;
+}
+
+#updateButton {
+  background-color: #fcad26;
+  border-radius: 20px;
+}
+
+#updateButton:hover {
+	-webkit-box-shadow: 0 4px #efa424;
+	        box-shadow: 0 4px #efa424;
+	top: 2px;
+}

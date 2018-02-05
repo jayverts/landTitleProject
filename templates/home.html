@@ -1,0 +1,75 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+<body>
+    <h3>Zip Look Up</h3>
+    <input id="zipInput" type="TEXT" name="zip" size="25" placeholder="Enter Zip">
+    <button id="zipButton" onclick="zipFunction()">Look Up Zip</button>
+    <br>
+    <br>
+    <h3>Add contact</h3>
+    <form id="addContact" method="POST" action="/">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="address" placeholder="Address">
+        <input type="text" name="city" placeholder="City">
+        <input type="text" name="state" placeholder="State">
+        <input type="text" name="zip" placeholder="Zip Code">
+        <button type="submit" value="Add">Add Contact</button>
+    </form>
+    <br>
+    <br>
+    <h3>Contacts</h3>
+    {% for contact in contacts %}
+
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">{{contact.name}}</span>
+                    <p>{{contact.address}}</p>
+                    <p>{{contact.city}}</p>
+                    <p>{{contact.state}}</p>
+                    <p>{{contact.zip}}</p>
+                </div>
+                <div class="card-action">
+                    <button href="#updateModal" id="updateButton" data-target="modal1" class="btn modal-trigger">Update Contact</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="updateModal" class="modal">
+            <div class="modal-content blue-grey darken-1">
+                <form method="POST" action="./update" style="display: inline">
+                    <input type="hidden" value="{{contact.name}}" name="oldname">
+                    <input type="text" value="{{contact.name}}" name="newname">
+                    <input type="hidden" value="{{contact.address}}" name="oldaddress">
+                    <input type="text" value="{{contact.address}}" name="newaddress">
+                    <input type="hidden" value="{{contact.city}}" name="oldcity">
+                    <input type="text" value="{{contact.city}}" name="newcity">
+                    <input type="hidden" value="{{contact.state}}" name="oldstate">
+                    <input type="text" value="{{contact.state}}" name="newstate">
+                    <input type="hidden" value="{{contact.zip}}" name="oldzip">
+                    <input type="text" value="{{contact.zip}}" name="newzip">
+                    <button id="saveButton" type="submit" value="Update">Save</button>
+                </form>
+                <form method="POST" action="./delete" style="display: inline">
+                    <input type="hidden" value="{{contact.name}}" name="name">
+                    <button id="deleteButton" type="submit" value="Delete">Delete Contact</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+    </script>
+</body>
+</html>
